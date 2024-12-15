@@ -1,0 +1,31 @@
+﻿@model Note
+
+<h1>Delete Note</h1>
+
+<p>Are You Sure?</p>
+
+<div class="mb-3">
+    <strong>Name:</strong> @Model.Title
+</div>
+<div class="mb-3">
+    <strong>Content:</strong> @Model.Content
+</div>
+<div class="mb-3">
+    <strong>Tag:</strong> @string.Join(", ", Model.Tag)
+</div>
+<div class="mb-3">
+    <strong>Created At:</strong> @Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-controller="Note" asp-action="Index" class="btn btn-secondary">Retreat</a>
+</form>
+
+
+@section Scripts {
+    @{
+                <partial name="_ValidationScriptsPartial" />
+    }
+}

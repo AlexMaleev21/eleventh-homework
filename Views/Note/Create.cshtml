@@ -1,0 +1,29 @@
+﻿@model Note
+
+<h1>Create Note</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for ="Title">Name</label>
+        <input type="text" class="form-control" id="Title" name="Title" required>
+        <span asp-validation-for="Title" class=" alert-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Content">Content</label>
+        <textarea class="form-control" id="Content" name="Content" rows="5" required></textarea>
+        <span asp-validation-for="Content" class=" alert-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Tag">Tag</label>
+        <input type="text" class="form-control" id="Tag" name="Tag" placeholder="Example: #Rest">
+        <span asp-validation-for="Tag" class=" alert-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Save</button>
+</form>
+
+
+@section Scripts {
+    @{
+                <partial name="_ValidationScriptsPartial" />
+    }
+}
